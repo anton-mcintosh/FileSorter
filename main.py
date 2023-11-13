@@ -5,7 +5,10 @@ from datetime import datetime
 downloads = '/Users/anthonymcintosh/downloads'
 screenshots = '/Users/anthonymcintosh/desktop/screenshots'
 
+## sortDownloads
 # Sorts the files in the downloads folder into folders based on their file extension
+# If the folder does not exist, it will be created.
+##
 def sortDownloads():
     list_ = os.listdir(downloads)
     for file_ in list_:
@@ -19,7 +22,10 @@ def sortDownloads():
             os.makedirs(downloads+'/'+ext)
             shutil.move(downloads+'/'+file_, downloads+'/'+ext+'/'+file_)
 
-# Sorts the files in the screenshots folder into folders based on their creation date
+## sortScreenshots
+#  Sorts the files in the screenshots folder into folders based on their creation date.
+# If the folder does not exist, it will be created.
+##
 def sortScreenshots():
     list_ = os.listdir(screenshots)
     sorted_list = sorted(list_, key=lambda x: os.path.getctime(os.path.join(screenshots, x)))
